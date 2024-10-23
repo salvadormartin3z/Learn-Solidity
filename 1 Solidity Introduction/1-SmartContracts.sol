@@ -33,3 +33,20 @@ The variable sum should be a uint256 with the sum of the values stored in a and 
     uint16 public b = 256;
     uint256 public sum = a + b;
 }
+
+/*
+3: Signed Integers
+
+Your Goal: Create Signed Integers!
+Create three public storage integers a, b, and difference.
+
+Declare the variables a and b as int8. One of the values must be positive, the other must be negative.
+
+Declare the variable difference as a int16 which is the absolute difference between a and b.
+ */
+
+ contract Contract3 {
+    int8 public a = 3;
+    int8 public b = -3;
+    int16 public difference = a - b;
+}
