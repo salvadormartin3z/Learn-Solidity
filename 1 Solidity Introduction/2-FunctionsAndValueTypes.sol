@@ -53,3 +53,20 @@ contract Contract2 {
         return 794;
     }
 }
+
+/* 
+5: Pure Double
+
+Your Goal: Double Uint
+Create an external, pure function called double which takes a uint parameter and doubles it. It should return this doubled uint value.
+ */
+
+contract Contract3 {
+    function double(uint _value) external pure returns(uint){
+        return _value*2;
+    }
+
+    function double(uint _value1, uint _value2) external pure returns(uint,uint){
+        return (_value1 * 2, _value2 * 2);
+    }
+}
