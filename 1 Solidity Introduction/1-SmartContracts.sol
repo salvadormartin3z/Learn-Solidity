@@ -50,3 +50,19 @@ Declare the variable difference as a int16 which is the absolute difference betw
     int8 public b = -3;
     int16 public difference = a - b;
 }
+
+/* 
+4: String Literals
+
+Your Goal: Hello World 
+It's time to do Hello World in Solidity! 
+
+Create a public bytes32 storage variable msg1 which stores a string literal "Hello World".
+
+Create a public string storage variable msg2 which stores a string literal that requires over 32 bytes to store.
+ */
+
+ contract Contract4 {
+	bytes32 public msg1 = "Hello World";
+    string public msg2 = "HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+}
