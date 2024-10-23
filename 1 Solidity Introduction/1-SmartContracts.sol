@@ -66,3 +66,21 @@ Create a public string storage variable msg2 which stores a string literal that 
 	bytes32 public msg1 = "Hello World";
     string public msg2 = "HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 }
+
+/* 
+5: Enum
+
+Your Goal: Make Some Food!
+In the enum provided you'll see there are four types of Foods 
+
+Take the values and store them in food1, food2, food3, and food4
+ */
+
+ contract Contract5 {
+    enum Foods { Apple, Pizza, Bagel, Banana }
+
+	Foods public food1 = Foods.Apple;
+	Foods public food2 = Foods.Pizza;
+	Foods public food3 = Foods.Bagel;
+	Foods public food4 = Foods.Banana;
+}
