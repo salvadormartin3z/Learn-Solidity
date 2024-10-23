@@ -59,6 +59,12 @@ contract Contract2 {
 
 Your Goal: Double Uint
 Create an external, pure function called double which takes a uint parameter and doubles it. It should return this doubled uint value.
+
+---------------------- 6: Double Overload
+
+Your Goal: Overload Double
+Create another pure external function double which takes two uint parameters.
+Double both of the arguments and return both of them in the same order they were passed into the function.
  */
 
 contract Contract3 {
