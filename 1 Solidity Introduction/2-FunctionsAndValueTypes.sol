@@ -37,3 +37,19 @@ Create an external view function add which takes a uint parameter and returns th
     }
 
 }
+
+/* 
+4: Console Log
+
+Your Goal: Return the Secret
+There is a message being passed to you in the winningNumber function. You can use console.log to display this message to the console. It will tell you what to do from there!
+ */
+
+ import "forge-std/console.sol";
+
+contract Contract2 {
+    function winningNumber(string calldata secretMessage) external returns(uint) {
+        console.log(secretMessage);
+        return 794;
+    }
+}
