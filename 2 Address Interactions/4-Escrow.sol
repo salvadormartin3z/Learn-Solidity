@@ -8,6 +8,13 @@ Create three public storage variables for the addresses of the depositor, benefi
 Your Goal: Store Addresses
 Create a constructor which takes two arguments: an address for the arbiter and an address for the beneficiary (in that order). Store these variables in the corresponding state variables.
 The depositor is the address deploying the contract, so take this address and store it in the depositor state variable.
+
+Your Goal: Payable
+Modify the constructor function to make it payable.
+
+Your Goal: Approve
+Create an external function called approve.
+This function should move the contract's balance to the beneficiary's address.
  */
 
  contract Escrow {
@@ -15,9 +22,14 @@ The depositor is the address deploying the contract, so take this address and st
     address public beneficiary;
     address public arbiter;
 
-    constructor(address _arbiter, address _beneficiary){
+    constructor(address _arbiter, address _beneficiary) payable {
         depositor = msg.sender;
         beneficiary = _beneficiary;
         arbiter = _arbiter;
+    }
+
+    function approve() external {
+        (bool succes, ) = beneficiary.call{value: address(this).balance}("");
+        require(succes, "Something bad");
     }
 }
