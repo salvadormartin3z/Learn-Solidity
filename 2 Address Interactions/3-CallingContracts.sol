@@ -58,3 +58,33 @@ Alert the Hero by calling alert and passing the number of enemies and whether or
         require(success);
     }
 }
+
+
+/* 
+Your Goal: Pass Calldata
+The Sidekick needs to be able to relay any calldata along to the Hero. Update the relay function to take the data and send it to the Hero as calldata.
+
+ */
+contract Sidekick4 {
+    function relay(address hero, bytes memory data) external {
+        // Using the low-level call to send the data to the Hero contract
+        (bool success, ) = hero.call(data);
+        
+        // Check if the call was successful
+        require(success, "Call to Hero failed");
+    }
+}
+
+
+/* 
+our Goal: Trigger the fallback
+In the makeContact method, send some calldata to the Hero contract that will trigger its fallback function.
+ */
+
+ contract Sidekick5 {
+    function makeContact(address hero) external {
+        // TODO: trigger the hero's fallback function!
+        (bool succes, ) = hero.call("");
+        require(succes, "Fallback");
+    }
+}
