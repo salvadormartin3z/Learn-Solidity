@@ -15,9 +15,12 @@ Modify the constructor function to make it payable.
 Your Goal: Approve
 Create an external function called approve.
 This function should move the contract's balance to the beneficiary's address.
+
+Your Goal: Security
+If anyone tries to call approve other than the arbiter address, revert the transaction.
  */
 
- contract Escrow {
+contract Escrow {
     address public depositor;
     address public beneficiary;
     address public arbiter;
@@ -29,6 +32,8 @@ This function should move the contract's balance to the beneficiary's address.
     }
 
     function approve() external {
+        require(msg.sender == arbiter, "You are not allowed");
+
         (bool succes, ) = beneficiary.call{value: address(this).balance}("");
         require(succes, "Something bad");
     }
