@@ -18,12 +18,19 @@ This function should move the contract's balance to the beneficiary's address.
 
 Your Goal: Security
 If anyone tries to call approve other than the arbiter address, revert the transaction.
+
+Your Goal: Approved
+Create an event called Approved which takes a single uint parameter: the balance that is sent to the beneficiary.
+
+Emit this event from within the approve function.
  */
 
 contract Escrow {
     address public depositor;
     address public beneficiary;
     address public arbiter;
+
+    event Approved (uint amount);
 
     constructor(address _arbiter, address _beneficiary) payable {
         depositor = msg.sender;
@@ -34,7 +41,11 @@ contract Escrow {
     function approve() external {
         require(msg.sender == arbiter, "You are not allowed");
 
-        (bool succes, ) = beneficiary.call{value: address(this).balance}("");
-        require(succes, "Something bad");
+        uint balance = address(this).balance;
+
+        (bool success, ) = beneficiary.call{value: address(this).balance}("");
+        require(success, "Something bad");
+
+        emit Approved(balance);
     }
 }
