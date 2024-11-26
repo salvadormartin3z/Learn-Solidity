@@ -90,3 +90,29 @@ contract Contract4 {
     }
 }
 
+/* 
+5: Stack Club 1
+
+ Your Goal: Add Members 
+Create a dynamic sized array of addresses called members
+Create an external function addMember which has a single parameter: an address for a new member. Add this address to the members array.
+Create a public view function isMember that takes an address and returns a bool indicating whether the address is a member or not.
+ */
+
+contract StackClub {
+    address[] members;
+
+    function addMember(address newAddress) external {
+        members.push(newAddress);
+    }
+
+    function isMember(address comapareAddress) public view returns(bool){
+        for(uint i = 0; i < members.length; i++){
+            if(members[i]==comapareAddress){
+                return true;
+                break;
+            }
+        }
+        return false;
+    }
+}
